@@ -6,7 +6,7 @@ compatibility_flags = [ "nodejs_compat" ]
 # TODO: In-Workshop Activities. Uncomment the code below:
  
 [[d1_databases]]
-binding = "blazenote"
+binding = "DB"
 database_name = "blazenote"
 database_id = "878e069b-dfae-4dfc-9ec3-b4a890637925"
 migrations_dir = "./migrations"
