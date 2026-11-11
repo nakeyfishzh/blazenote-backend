@@ -23,4 +23,4 @@ migrations_dir = "./migrations"
 enabled = true
 
 [vars]
-VITE_API_BASE_URL=blazenote-backend.groundbreaking-timer.sxplab.com
+VITE_API_BASE_URL = "blazenote-backend.groundbreaking-timer.sxplab.com"
