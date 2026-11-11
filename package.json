@@ -11,5 +11,11 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
     "wrangler": "^4.45.0 "
+  },
+  "allowScripts": {
+    "aws-sdk@2.1692.0": true,
+    "esbuild@0.25.4": true,
+    "sharp@0.33.5": true,
+    "workerd@1.20251011.0": true
   }
 }

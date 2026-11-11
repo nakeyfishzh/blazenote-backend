@@ -5,11 +5,11 @@ compatibility_flags = [ "nodejs_compat" ]
 
 # TODO: In-Workshop Activities. Uncomment the code below:
  
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "blazenote"
-# database_id = "<your-database-id>"
-# migrations_dir = "./migrations"
+[[d1_databases]]
+binding = "blazenote"
+database_name = "blazenote"
+database_id = "878e069b-dfae-4dfc-9ec3-b4a890637925"
+migrations_dir = "./migrations"
 # remote = true
 
 # [[r2_buckets]]
@@ -21,3 +21,6 @@ compatibility_flags = [ "nodejs_compat" ]
 # Enable observability logging
 [observability.logs]
 enabled = true
+
+[vars]
+VITE_API_BASE_URL=blazenote-backend.groundbreaking-timer.sxplab.com
