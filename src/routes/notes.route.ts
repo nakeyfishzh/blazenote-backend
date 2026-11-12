@@ -1,16 +1,14 @@
 import { Hono } from "hono";
 import { ContextExtended } from "../types";
 
+console.log('[Notes] blazenote-backend starting...');
+
 const notes = new Hono();
 
 // TODO: In-Workshop Activities.
 // notes.get('/', async (ctx: ContextExtended) => {
 //     return Response.json([])
 // });
-
- notes.get('/', (ctx) => {
-    return Response.json([])
- });
 
  notes.get('/', async (ctx: ContextExtended) => {
     const db = ctx.env.DB;
@@ -24,10 +22,6 @@ const notes = new Hono();
 // notes.get('/:id', async (ctx: ContextExtended) => {
 //     return Response.json({})
 // });
- notes.get('/:id', (ctx) => {
-    return Response.json({})
- });
-
  notes.get('/:id', async (ctx: ContextExtended) => {
     const id = ctx.req.path.split('/').slice(-1).join()
     const db = ctx.env.DB;
@@ -43,10 +37,6 @@ const notes = new Hono();
 // notes.post('/', async (ctx: ContextExtended) => {
 //     return Response.json({ message: "note created" })
 // });
- notes.post('/', (ctx) => {
-    return Response.json({ message: "note created" })
- });
-
  notes.post('/', async (ctx: ContextExtended) => {
     try {
         const { id, title, description } = await ctx.req.json()
@@ -69,9 +59,6 @@ const notes = new Hono();
 // notes.put('/:id', async (ctx: ContextExtended) => {
 //     return Response.json({ message: "note updated" })
 // });
- notes.put('/:id', (ctx) => {
-    return Response.json({ message: "note created" })
- });
 
  notes.put('/:id', async (ctx: ContextExtended) => {
     try {
@@ -85,6 +72,10 @@ const notes = new Hono();
         )
         .run();
         
+// 2. 关键：打印执行结果
+        console.log('[PUT] meta =', JSON.stringify(response.meta));
+        console.log('[PUT] changes =', response.meta.changes);
+
         return response.success ? Response.json({ message: "note updated" }) : Response.json({ message: "failed to update note" })
     } catch (e) {
         console.error(`failed to update note. reason: ${e}`)
@@ -99,11 +90,6 @@ const notes = new Hono();
 // notes.delete('/:id', async (ctx: ContextExtended) => {
 // 
 // });
- notes.delete('/:id', (ctx) => {
-    return Response.json({ message: "note deleted" })
- });
-
-
  notes.delete('/:id', async (ctx: ContextExtended) => {
     try {
         const id = ctx.req.path.split('/').slice(-1).join()
