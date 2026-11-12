@@ -72,10 +72,6 @@ const notes = new Hono();
         )
         .run();
         
-// 2. 关键：打印执行结果
-        console.log('[PUT] meta =', JSON.stringify(response.meta));
-        console.log('[PUT] changes =', response.meta.changes);
-
         return response.success ? Response.json({ message: "note updated" }) : Response.json({ message: "failed to update note" })
     } catch (e) {
         console.error(`failed to update note. reason: ${e}`)
